@@ -5,12 +5,12 @@ const projectData = [
   {
     title: 'Project 1',
     description: 'This is a description of project 1.',
-    image: 'https://via.placeholder.com/300',
+    // image: 'https://via.placeholder.com/300',//add width and height later
   },
   {
     title: 'Project 2',
     description: 'This is a description of project 2.',
-    image: 'https://via.placeholder.com/300',
+    // image: 'https://via.placeholder.com/300',
   },
 ];
 
