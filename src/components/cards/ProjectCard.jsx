@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-
+import Image from 'next/image';
 const ProjectCard = ({ projectData, layout = 'vertical' }) => {
   const isHorizontal = layout === 'horizontal';
 
