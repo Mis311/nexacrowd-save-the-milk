@@ -13,7 +13,6 @@ const ProjectPage = () => {
     <div className="flex flex-col min-h-screen">
       <Navbar />
       <main className="flex-grow">
-       
         <main className="flex-grow">
           {/* Project Image */}
           <div
@@ -25,11 +24,21 @@ const ProjectPage = () => {
 
           {/* Project Info */}
           <section className="container mx-auto px-6 py-10">
-            <h1 className="text-4xl font-bold mb-4 font-lato">Project Title</h1>
+            <h1 className="text-4xl font-bold mb-4 font-lato">Save Japanese Milk Farms</h1>
             <p className="text-lg mb-6 font-nunito">
-              Project description goes here. Lorem ipsum dolor sit amet,
-              consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-              labore et dolore magna aliqua.
+              This is a use case for milk farmers in Japan. Currently farms are
+              suffering from low consumption, high price of crops due to all
+              world crisis. Not only they have to dump tons of milks, the
+              governments are paying them to kill their milk cows. 1/3 of Milk
+              farms in Hokkaido shutdown business. Government cannot solve
+              everything. Therefore, I suggest a decentralized solution to this,
+              which is a platform they can get help for fundraising (to help
+              themselves and get crowdsourced). We will use chatGPT and human
+              service to analyse possible solutions such as export milks abroad,
+              marketing for new recepes Japanese people can digest and branding.
+              We can initiate with cow NFT, which is associated with the farms
+              and their cows and you can get sticker if you buy their NFT
+              specific product at convinience store or supermarket.
             </p>
             <button className="bg-blue-500 text-white font-semibold px-4 py-2 rounded hover:bg-blue-600 mb-4">
               Donate

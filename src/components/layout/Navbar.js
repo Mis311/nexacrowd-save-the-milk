@@ -24,28 +24,40 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-white shadow-md py-4 px-12">
-      <div className="flex justify-between items-center flex">
-        <div className="text-xl font-bold text-gray-800 grid">Save the Milk <span className="text-s font-thin flex flex-col">by NexaCrowd</span></div>
-        <div className="space-x-4">
-          <a href="#" className="text-gray-700 hover:text-gray-900 font-bold">
-            Home
+    <nav>
+      <div className="fixed top-0 left-0 w-full bg-transparent z-10">
+        <div className="container mx-auto px-4 py-2 flex items-center justify-between">
+          <a href="/" className="text-white font-bold text-xl">
+            Logo
           </a>
-          <a href="#" className="text-gray-700 hover:text-gray-900 font-bold">
-            Projects
-          </a>
-          <a href="#" className="text-gray-700 hover:text-gray-900 font-bold">
-            About
-          </a>
-          <button className="bg-blue-500 text-white font-semibold px-4 py-2 rounded hover:bg-blue-600">
-            Create Project
-          </button>
-          <button
-            onClick={connectWallet}
-            className="bg-blue-500 text-white font-semibold px-4 py-2 rounded hover:bg-blue-600"
-          >
-            {account ? "Connected" : "Connect Wallet"}
-          </button>
+          <ul className="hidden sm:flex space-x-8">
+            <li>
+              <a href="#about" className="text-white">
+                About
+              </a>
+            </li>
+            <li>
+              <a href="#services" className="text-white">
+                Services
+              </a>
+            </li>
+            <li>
+              <a href="#contact" className="text-white">
+                Contact
+              </a>
+            </li>
+          </ul>
+          <div className="flex space-x-4">
+            <button className="bg-blue-500 text-white font-semibold px-4 py-2 rounded hover:bg-blue-600">
+              Create Project
+            </button>
+            <button
+              onClick={connectWallet}
+              className="bg-blue-500 text-white font-semibold px-4 py-2 rounded hover:bg-blue-600"
+            >
+              {account ? "Connected" : "Connect Wallet"}
+            </button>
+          </div>
         </div>
       </div>
     </nav>
