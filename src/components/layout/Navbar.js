@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ethers } from "ethers";
 import detectEthereumProvider from "@metamask/detect-provider";
-
+import Link from "next/link";
 const Navbar = () => {
   const [account, setAccount] = useState("");
 
@@ -32,19 +32,19 @@ const Navbar = () => {
           </a>
           <ul className="hidden sm:flex space-x-8">
             <li>
-              <a href="#about" className="text-white">
+              <Link href="#about" className="text-white">
                 About
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#services" className="text-white">
+              <Link href="#services" className="text-white">
                 Services
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#contact" className="text-white">
+              <Link href="#contact" className="text-white">
                 Contact
-              </a>
+              </Link>
             </li>
           </ul>
           <div className="flex space-x-4">

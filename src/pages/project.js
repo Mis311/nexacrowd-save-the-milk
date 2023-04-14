@@ -3,7 +3,7 @@ import Footer from "../components/layout/Footer";
 import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-
+// import Image from "next/image"; //will add image later
 const ProjectPage = () => {
   useEffect(() => {
     AOS.init({ duration: 1000 });
@@ -24,7 +24,9 @@ const ProjectPage = () => {
 
           {/* Project Info */}
           <section className="container mx-auto px-6 py-10">
-            <h1 className="text-4xl font-bold mb-4 font-lato">Save Japanese Milk Farms</h1>
+            <h1 className="text-4xl font-bold mb-4 font-lato">
+              Save Japanese Milk Farms
+            </h1>
             <p className="text-lg mb-6 font-nunito">
               This is a use case for milk farmers in Japan. Currently farms are
               suffering from low consumption, high price of crops due to all
@@ -78,31 +80,40 @@ const ProjectPage = () => {
             <div className="space-y-12">
               {/* Story 1 */}
               <div className="space-y-4" data-aos="fade-up">
-                <h2 className="text-2xl font-bold font-lato">Story 1</h2>
+                <h2 className="text-2xl font-bold font-lato ">Story 1</h2>
                 <p className="text-lg font-nunito">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   Phasellus accumsan est in sapien imperdiet ullamcorper.
                 </p>
-                <img
-                  src="https://source.unsplash.com/random/800x450"
-                  alt="Story 1"
-                  className="rounded-lg w-full"
-                />
+                {/* <div className="w-full h-64 relative">
+                  <Image
+                    src="https://source.unsplash.com/random/800x450"
+                    alt="Story 1"
+                    layout="responsive"
+                    width={800}
+                    height={450}
+                    className="rounded-lg"
+                  />
+                </div> */}
               </div>
-
-              {/* Story 2 */}
-              <div className="space-y-4" data-aos="fade-up">
-                <h2 className="text-2xl font-bold font-lato">Story 2</h2>
-                <p className="text-lg font-nunito">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Phasellus accumsan est in sapien imperdiet ullamcorper.
-                </p>
-                <img
-                  src="https://source.unsplash.com/random/800x450?2"
+            </div>
+            {/* Story 2 */}
+            <div className="space-y-4" data-aos="fade-up">
+              <h2 className="text-2xl font-bold font-lato">Story 2</h2>
+              <p className="text-lg font-nunito">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Phasellus accumsan est in sapien imperdiet ullamcorper.
+              </p>
+              {/* <div className="w-full h-64 relative">
+                <Image
+                  src="/images/toppage-cow.png"
                   alt="Story 2"
-                  className="rounded-lg w-full"
+                  layout="responsive"
+                  width={800}
+                  height={450}
+                  className="rounded-lg"
                 />
-              </div>
+              </div> */}
 
               {/* Story 3 */}
               <div className="space-y-4" data-aos="fade-up">
@@ -111,11 +122,13 @@ const ProjectPage = () => {
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   Phasellus accumsan est in sapien imperdiet ullamcorper.
                 </p>
-                <img
-                  src="https://source.unsplash.com/random/800x450?3"
-                  alt="Story 3"
-                  className="rounded-lg w-full"
-                />
+                {/* <div className="w-full h-64 relative">
+                  <Image
+                    src="/images/toppage-cow.png"
+                    alt="Story 3"
+                    className="rounded-lg w-full"
+                  />
+                </div> */}
               </div>
             </div>
           </section>
