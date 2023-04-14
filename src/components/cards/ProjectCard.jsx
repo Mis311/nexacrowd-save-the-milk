@@ -11,6 +11,7 @@ const ProjectCard = ({ projectData, layout = 'vertical' }) => {
     'p-4',
     'mb-4',
     'flex',
+    {hover: 'hover:shadow-lg transform hover:scale-105 transition-all duration-200 ease-in-out'},
     {
       'flex-col': !isHorizontal,
       'flex-row': isHorizontal,

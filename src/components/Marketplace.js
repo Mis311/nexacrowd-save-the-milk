@@ -1,5 +1,5 @@
 import React from 'react';
-import MarketplaceCard from './MarketplaceCard';
+import ProjectCard from '../components/cards/ProjectCard';
 
 const projectData = [
   {
@@ -20,13 +20,13 @@ function Marketplace() {
       <h1 className="text-3xl font-semibold mb-4">Marketplace</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {projectData.map((project, index) => (
-          <MarketplaceCard key={index} projectData={project} layout="vertical" />
+          <ProjectCard key={index} projectData={project} layout="vertical" />
         ))}
       </div>
       <div className="mt-8">
         <h2 className="text-2xl font-semibold mb-4">Horizontal Layout</h2>
         {projectData.map((project, index) => (
-          <MarketplaceCard key={index} projectData={project} layout="horizontal" />
+          <ProjectCard key={index} projectData={project} layout="horizontal" />
         ))}
       </div>
     </div>
