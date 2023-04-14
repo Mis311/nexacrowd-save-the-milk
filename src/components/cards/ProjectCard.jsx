@@ -40,7 +40,7 @@ const ProjectCard = ({ projectData, layout = 'vertical' }) => {
 
   return (
     <div className={cardClasses}>
-      <img src={projectData.image} alt={projectData.title} className={imageClasses} />
+      <Image src={projectData.image} alt={projectData.title} className={imageClasses} />
       <div className={contentClasses}>
         <h3 className="text-xl font-semibold mb-2">{projectData.title}</h3>
         <p className="text-gray-500 text-sm mb-2">{projectData.description}</p>
