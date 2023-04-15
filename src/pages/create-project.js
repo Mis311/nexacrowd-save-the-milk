@@ -1,32 +1,44 @@
 import React, { useState } from "react";
-import Link from "next/link";
 import Navbar from "../components/layout/Navbar";
 import openaiApi from "../utils/openaiApi";
 
+const DisplayGptResponse = ({ response }) => {
+  return (
+    <div className="container mx-auto px-4 py-8">
+      <h2 className="text-2xl font-semibold mb-4">ChatGPT Response</h2>
+      <p>{response}</p>
+    </div>
+  );
+};
+
 const CreateProject = () => {
   const [amount, setAmount] = useState("");
-  const [objective, setObjective] = useState("");
+  const [objective, setObjective] = useState({});
   const [otherObjective, setOtherObjective] = useState("");
+  const [chatGptResponse, setChatGptResponse] = useState("");
+
+  const handleObjectiveChange = (e) => {
+    const { name, checked } = e.target;
+    setObjective((prevObjective) => ({ ...prevObjective, [name]: checked }));
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const chosenObjective = objective === "others" ? otherObjective : objective;
+    const chosenObjective = objective.others ? otherObjective : objective;
 
     // Create a formatted prompt for ChatGPT
-    const prompt = `The user needs approximately ${amount} JPY in funding for their project. Their main objective is "${chosenObjective}". What are some suitable solutions and a list of necessary stakeholders (people to hire and their skillset & experiences) for this project? Suggest each of the list up to 10`;
+    const prompt = `The user needs approximately ${amount} JPY in funding for their project. Their main objective is "${chosenObjective}". What are some suitable duration for the fundraising (suggest approcimate time), solutions and a list of necessary stakeholders (people to hire and their skillset & experiences) for this project? Suggest each of the list up to 10(only 1 for duration)`;
 
     // Get ChatGPT response
     const chatGptResponse = await openaiApi(prompt);
-
-    // Process and display the response, extract solutions, and stakeholders
-    // Create reusable cards of stakeholders
+    setChatGptResponse(chatGptResponse);
   };
 
   return (
     <div>
-      <Navbar />
+      <Navbar style={{ backgroundColor:"grey"}}/>
       <main>
-        <div className="container mx-auto px-4 py-8">
+        <div className="container mx-auto px-4 py-8 mt-24">
           <h1 className="text-2xl font-semibold mb-4">Create Project</h1>
           <form onSubmit={handleSubmit}>
             <div className="mb-4">
@@ -46,43 +58,73 @@ const CreateProject = () => {
               <div className="mt-1 text-sm">{amount} JPY</div>
             </div>
             <div className="mb-4">
-              <label htmlFor="objective" className="block text-sm font-medium">
+              <label className="block text-sm font-medium">
                 What do you want to achieve?
               </label>
-              <select
-                id="objective"
-                value={objective}
-                onChange={(e) => setObjective(e.target.value)}
-                className="mt-1 block w-full"
-              >
-                <option value="">Select an option</option>
-                <option value="support">
-                  To support cows, family, and business
-                </option>
-                <option value="revenue">To grow in revenue</option>
-                <option value="promotion">New promotion and campaign</option>
-                <option value="expansion">New market expansion</option>
-                <option value="branding">Media mix and branding</option>
-                <option value="others">Others</option>
-              </select>
-            </div>
-            {objective === "others" && (
-              <div className="mb-4">
-                <label
-                  htmlFor="otherObjective"
-                  className="block text-sm font-medium"
-                >
-                  Please specify your objective
+              <div className="mt-2">
+                <label className="inline-flex items-center mr-4">
+                  <input
+                    type="checkbox"
+                    name="support"
+                    checked={objective.support || false}
+                    onChange={handleObjectiveChange}
+                    className="form-checkbox"
+                  />
+                  <span className="ml-2">To support cows, family, and business</span>
                 </label>
-                <input
-                  id="otherObjective"
-                  type="text"
-                  value={otherObjective}
-                  onChange={(e) => setOtherObjective(e.target.value)}
-                  className="mt-1 block w-full"
-                />
+                <label className="inline-flex items-center mr-4">
+                  <input
+                    type="checkbox"
+                    name="revenue"
+                    checked={objective.revenue || false}
+                    onChange={handleObjectiveChange}
+                    className="form-checkbox"
+                  />
+                  <span className="ml-2">To grow in revenue</span>
+                </label>
+                <label className="inline-flex items-center mr-4">
+                  <input
+                    type="checkbox"
+                    name="promotion"
+                    checked={objective.promotion || false}
+                    onChange={handleObjectiveChange}
+                    className="form-checkbox"
+                  />
+                  <span className="ml-2">New promotion and campaign</span>
+                </label>
+                <label className="inline-flex items-center mr-4">
+                  <input
+                    type="checkbox"
+                    name="expansion"
+                    checked={objective.expansion || false}
+                    onChange={handleObjectiveChange}
+                    className="form-checkbox"
+                  />
+                  <span className="ml-2">New market expansion</span>
+                </label>
+                <label className="inline-flex items-center mr-4">
+                  <input
+                    type="checkbox"
+                    name="branding"
+                    checked={objective.branding || false}
+                    onChange={handleObjectiveChange}
+                    className="form-checkbox"
+                  />
+                  <span className="ml-2">Media mix and branding</span>
+                </label>
+                <label className="inline-flex items-center">
+                  <input
+                    type="checkbox"
+                    name="others"
+                    checked={objective.others || false}
+                    onChange={handleObjectiveChange}
+                    className="form-checkbox"
+                  />
+                  <span className="ml-2">Others</span>
+                </label>
               </div>
-            )}
+            </div>
+    
             <button
               type="submit"
               className="bg-blue-500 text-white font-semibold px-4 py-2 rounded hover:bg-blue-600"
@@ -91,9 +133,10 @@ const CreateProject = () => {
             </button>
           </form>
         </div>
+        {chatGptResponse && <DisplayGptResponse response={chatGptResponse} />}
       </main>
     </div>
-  );
-};
+);
+};    
 
 export default CreateProject;

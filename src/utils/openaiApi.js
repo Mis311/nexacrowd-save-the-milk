@@ -1,12 +1,11 @@
 import axios from "axios";
 
 const openaiApi = async (inputText) => {
-  const apiKey = "";
   const apiUrl = "https://api.openai.com/v1/engines/davinci-codex/completions";
 
   const headers = {
-    "Content-Type": "application/json",
-    Authorization: `Bearer ${apiKey}`,
+    'Content-Type': 'application/json',
+    Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
   };
 
   const data = {
@@ -26,3 +25,6 @@ const openaiApi = async (inputText) => {
 };
 
 export default openaiApi;
+
+
+

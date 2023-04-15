@@ -1,5 +1,5 @@
 {
   "env": {
-    "NexaCrowdKey": "@your-api-key-name"
+    "OPENAI_API_KEY": "NexaCrowd"
   }
 }
