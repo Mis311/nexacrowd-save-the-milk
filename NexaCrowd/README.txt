@@ -4,7 +4,6 @@
 npm run dev
 # or
 yarn dev
-
  npm install -g @graphprotocol/graph-cli
 
 ## Technologies 
