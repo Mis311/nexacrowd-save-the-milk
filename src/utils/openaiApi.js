@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const openaiApi = async (inputText) => {
-  const apiKey = "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";
+  const apiKey = "";
   const apiUrl = "https://api.openai.com/v1/engines/davinci-codex/completions";
 
   const headers = {
