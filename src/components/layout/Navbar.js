@@ -37,7 +37,7 @@ const Navbar = () => {
 
             <li>
               <Link href="#about" className="text-white">
-                Marketplace
+                TopPicks
               </Link>
             </li>
             <li>
@@ -45,12 +45,12 @@ const Navbar = () => {
                 href="#services"
                 className="text-white hover:text-slate !important"
               >
-                Projects
+                Marketplace
               </Link>
             </li>
             <li>
               <Link href="#contact" className="text-white">
-                NFTs
+                Talents
               </Link>
             </li>
           </ul>
