@@ -49,9 +49,13 @@ const Navbar = () => {
             </li>
           </ul>
           <div className="flex space-x-4">
-            <button className="bg-blue-500 text-white font-semibold px-4 py-2 rounded hover:bg-blue-600">
+            <Link
+              href="/create-project"
+              className="bg-blue-500 text-white font-semibold px-4 py-2 rounded hover:bg-blue-600"
+            >
               Create Project
-            </button>
+            </Link>
+
             <button
               onClick={connectWallet}
               className="bg-blue-500 text-white font-semibold px-4 py-2 rounded hover:bg-blue-600"
