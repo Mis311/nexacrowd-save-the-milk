@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import Navbar from "../components/layout/Navbar";
-import openaiApi from "../utils/openaiApi";
+import openaiApi from "../utils/chatGpt";
 
 const DisplayGptResponse = ({ response }) => {
   return (
     <div className="container mx-auto px-4 py-8">
       <h2 className="text-2xl font-semibold mb-4">ChatGPT Response</h2>
-      <p>{response}</p>
     </div>
   );
 };
@@ -36,8 +35,9 @@ const CreateProject = () => {
 
   return (
     <div>
-      <Navbar style={{ backgroundColor:"grey"}}/>
+      <Navbar style={{ backgroundColor: "grey" }} />
       <main>
+        <chatGpt />
         <div className="container mx-auto px-4 py-8 mt-24">
           <h1 className="text-2xl font-semibold mb-4">Create Project</h1>
           <form onSubmit={handleSubmit}>
@@ -70,7 +70,9 @@ const CreateProject = () => {
                     onChange={handleObjectiveChange}
                     className="form-checkbox"
                   />
-                  <span className="ml-2">To support cows, family, and business</span>
+                  <span className="ml-2">
+                    To support cows, family, and business
+                  </span>
                 </label>
                 <label className="inline-flex items-center mr-4">
                   <input
@@ -124,7 +126,7 @@ const CreateProject = () => {
                 </label>
               </div>
             </div>
-    
+
             <button
               type="submit"
               className="bg-blue-500 text-white font-semibold px-4 py-2 rounded hover:bg-blue-600"
@@ -136,7 +138,7 @@ const CreateProject = () => {
         {chatGptResponse && <DisplayGptResponse response={chatGptResponse} />}
       </main>
     </div>
-);
-};    
+  );
+};
 
 export default CreateProject;

@@ -12,6 +12,7 @@ export default function Home() {
       <Navbar />
       <nav></nav>
       <Header />
+    
       <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <section className="container mx-auto px-6 my-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
