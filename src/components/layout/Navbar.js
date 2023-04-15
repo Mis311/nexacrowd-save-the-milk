@@ -27,9 +27,11 @@ const Navbar = () => {
     <nav>
       <div className="fixed top-0 left-0 w-full bg-transparent z-10">
         <div className="container mx-auto px-4 py-2 flex items-center justify-between">
-          <ul className="hidden sm:flex space-x-8 flex items-center">
+          <ul className="hidden sm:flex space-x-8 flex items-center pt-2">
             <Link href="/" className="text-white font-bold text-xl">
-              Logo
+              <div className="container w-fit">
+                <img src="/logo.png" className="w-32"></img>
+              </div>
             </Link>
 
             <li>
