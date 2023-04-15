@@ -1,6 +1,12 @@
 import React from "react";
 
-const FeaturedCard = ({ title, headline, buttonText, imageURL, raisedAmount }) => {
+const FeaturedCard = ({
+  title,
+  headline,
+  buttonText,
+  imageURL,
+  raisedAmount,
+}) => {
   return (
     <div className="bg-white shadow-md rounded-xl p-4 hover:shadow-lg transform hover:scale-105 transition-all duration-200 ease-in-out">
       <img
