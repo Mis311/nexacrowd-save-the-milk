@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import Navbar from "../components/layout/Navbar";
 import openaiApi from "../utils/openaiApi";
+import AnimatedLoader from "../components/AnimatedLoader";
+import TalentCard from "../components/cards/TalentCard";
+
+
 
 const DisplayGptResponse = ({ response }) => {
   return (
@@ -15,7 +19,7 @@ const CreateProject = () => {
   const [objective, setObjective] = useState({});
   const [otherObjective, setOtherObjective] = useState("");
   const [chatGptResponse, setChatGptResponse] = useState("");
-
+  const [isLoading, setIsLoading] = useState(false);
   const handleObjectiveChange = (e) => {
     const { name, checked } = e.target;
     setObjective((prevObjective) => ({ ...prevObjective, [name]: checked }));
@@ -24,7 +28,7 @@ const CreateProject = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const chosenObjective = objective.others ? otherObjective : objective;
-
+    setIsLoading(true);
     // Create a formatted prompt for ChatGPT
     const prompt = `The user needs approximately ${amount} JPY in funding for their project. Their main objective is "${chosenObjective}". What are some suitable duration for the fundraising (suggest approcimate time), solutions and a list of necessary stakeholders (people to hire and their skillset & experiences) for this project? Suggest each of the list up to 10(only 1 for duration)`;
 
@@ -130,12 +134,14 @@ const CreateProject = () => {
             <button
               type="submit"
               className="bg-blue-500 text-white font-semibold px-4 py-2 rounded hover:bg-blue-600"
+              onClick={AnimatedLoader}
             >
               Confirm
             </button>
           </form>
         </div>
-        {chatGptResponse && <DisplayGptResponse response={chatGptResponse} />}
+        
+        {/* {chatGptResponse && <DisplayGptResponse response={chatGptResponse} />} */}
       </main>
     </div>
   );

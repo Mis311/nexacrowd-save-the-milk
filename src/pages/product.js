@@ -1,7 +1,16 @@
 import React, { useState } from "react";
-import { QRCode } from "qrcode.react";
+import QRCode from "qrcode.react";
+import Navbar from "../components/layout/Navbar";
+const hardcodedNftData = {
+  title: "Mighty Cow",
+  description: "MoMo Nation Project",
+  image: "/nfts/cow1.png",
+  width: 300,
+  height: 300,
+  slug: "/nfts/mighty-cow",
+};
 
-const ProductPage = ({ nftData }) => {
+const ProductPage = ({ nftData = hardcodedNftData }) => {
   const [randomQR, setRandomQR] = useState("");
 
   const generateRandomQR = () => {
@@ -10,7 +19,9 @@ const ProductPage = ({ nftData }) => {
   };
 
   return (
-    <div className="container mx-auto p-24">
+    <>
+    <Navbar />
+    <div className="container mx-auto p-24 mx-auto">
       <div className="flex flex-col lg:flex-row items-center">
         <img
           src={nftData.image}
@@ -35,6 +46,7 @@ const ProductPage = ({ nftData }) => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
