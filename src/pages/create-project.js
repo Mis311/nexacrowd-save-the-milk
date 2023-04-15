@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Navbar from "../components/layout/Navbar";
-import openaiApi from "../utils/chatGpt";
+import openaiApi from "../utils/openaiApi";
 
 const DisplayGptResponse = ({ response }) => {
   return (

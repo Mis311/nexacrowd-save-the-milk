@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { ethers } from "ethers";
 import detectEthereumProvider from "@metamask/detect-provider";
 import Link from "next/link";
+
 const Navbar = () => {
   const [account, setAccount] = useState("");
 
@@ -36,31 +37,34 @@ const Navbar = () => {
 
             <li>
               <Link href="#about" className="text-white">
-                About
+                Marketplace
               </Link>
             </li>
             <li>
-              <Link href="#services" className="text-white">
-                Services
+              <Link
+                href="#services"
+                className="text-white hover:text-slate !important"
+              >
+                Projects
               </Link>
             </li>
             <li>
               <Link href="#contact" className="text-white">
-                Contact
+                NFTs
               </Link>
             </li>
           </ul>
           <div className="flex space-x-4">
             <Link
               href="/create-project"
-              className="bg-blue-500 text-white font-semibold px-4 py-2 rounded hover:bg-blue-600"
+              className="bg-stone-500 text-white font-semibold px-4 py-2 rounded hover:bg-orange-400"
             >
               Create Project
             </Link>
 
             <button
               onClick={connectWallet}
-              className="bg-blue-500 text-white font-semibold px-4 py-2 rounded hover:bg-blue-600"
+              className="bg-stone-500 text-white font-semibold px-4 py-2 rounded hover:bg-blue-600"
             >
               {account ? "Connected" : "Connect Wallet"}
             </button>
