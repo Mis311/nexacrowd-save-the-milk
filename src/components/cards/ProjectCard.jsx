@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import Image from 'next/image';
+
 const ProjectCard = ({ projectData, layout = 'vertical' }) => {
   const isHorizontal = layout === 'horizontal';
 
@@ -11,15 +12,20 @@ const ProjectCard = ({ projectData, layout = 'vertical' }) => {
     'p-4',
     'mb-4',
     'flex',
-    {hover: 'hover:shadow-lg transform hover:scale-105 transition-all duration-200 ease-in-out'},
+    'hover:shadow-lg',
+    'transform',
+    'hover:scale-105',
+    'transition-all',
+    'duration-200',
+    'ease-in-out',
     {
       'flex-col': !isHorizontal,
       'flex-row': isHorizontal,
     }
   );
 
-  const imageClasses = classNames(
-    'object-cover',
+  const imageContainerClasses = classNames(
+    'relative',
     'rounded-lg',
     {
       'w-full': !isHorizontal,
@@ -40,7 +46,15 @@ const ProjectCard = ({ projectData, layout = 'vertical' }) => {
 
   return (
     <div className={cardClasses}>
-      <Image src={projectData.image} alt={projectData.title} className={imageClasses} />
+      <div className={imageContainerClasses}>
+        <Image
+          src={projectData.image}
+          alt={projectData.title}
+          layout="fill"
+          objectFit="cover"
+          className="rounded-lg"
+        />
+      </div>
       <div className={contentClasses}>
         <h3 className="text-xl font-semibold mb-2">{projectData.title}</h3>
         <p className="text-gray-500 text-sm mb-2">{projectData.description}</p>

@@ -1,16 +1,20 @@
-import React from 'react';
-import ProjectCard from '../components/cards/ProjectCard';
+import React from "react";
+import ProjectCard from "../components/cards/ProjectCard";
 
 const projectData = [
   {
-    title: 'Project 1',
-    description: 'This is a description of project 1.',
-    // image: 'https://via.placeholder.com/300',//add width and height later
+    title: "Project 1",
+    description: "This is a description of project 1.",
+    image: "https://via.placeholder.com/300",
+    width: 300,
+    height: 300,
   },
   {
-    title: 'Project 2',
-    description: 'This is a description of project 2.',
-    // image: 'https://via.placeholder.com/300',
+    title: "Project 2",
+    description: "This is a description of project 2.",
+    image: "https://via.placeholder.com/300",
+    width: 300,
+    height: 300,
   },
 ];
 
@@ -33,4 +37,4 @@ function Marketplace() {
   );
 }
 
-export default  Marketplace;
+export default Marketplace;
