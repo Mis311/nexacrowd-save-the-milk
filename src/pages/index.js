@@ -13,7 +13,7 @@ export default function Home() {
 
       <main className="flex min-h-screen flex-col items-center justify-between p-12">
         <section className="container mx-auto px-6 my-10">
-          <h1 className="text-3xl font-semibold mb-6">Top Picks</h1>
+          <h1 className="text-3xl font-semibold mb-6" id="toppicks">Top Picks</h1>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             <FeaturedCard
               title="Eco-Friendly Urban Farm"
@@ -21,6 +21,7 @@ export default function Home() {
               imageURL="images/farm.jpg"
               raisedAmount={1860040}
               buttonText="Learn More"
+              
             />
             <FeaturedCard
               title="Solar-Powered Water Purifier"
@@ -37,7 +38,7 @@ export default function Home() {
               raisedAmount={5840242}
             />
           </div>
-          <Marketplace />
+          <Marketplace id="marketplace" />
         </section>
       </main>
       <Footer />

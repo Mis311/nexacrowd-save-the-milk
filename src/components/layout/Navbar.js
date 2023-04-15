@@ -36,20 +36,20 @@ const Navbar = () => {
             </Link>
 
             <li>
-              <Link href="#about" className="text-white">
+              <Link href="#toppicks" className="text-white">
                 TopPicks
               </Link>
             </li>
             <li>
               <Link
-                href="#services"
+                href="#marketplace"
                 className="text-white hover:text-slate !important"
               >
                 Marketplace
               </Link>
             </li>
             <li>
-              <Link href="#contact" className="text-white">
+              <Link href="#talents" className="text-white">
                 Talents
               </Link>
             </li>

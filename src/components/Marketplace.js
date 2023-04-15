@@ -140,9 +140,9 @@ function Marketplace() {
         ))}
       </div>
       <div className="mt-8">
-        <h2 className="text-2xl font-semibold mb-4">Job Postings</h2>
+        <h2 className="text-2xl font-semibold mb-4" id="talents">Job Postings</h2>
         {jobData.map((job, index) => (
-          <TalentCard key={index} jobData={job} layout="horizontal" />
+          <TalentCard  key={index} jobData={job} layout="horizontal" />
         ))}
       </div>
     </div>
