@@ -1,5 +1,5 @@
 import React from "react";
-
+import Image from "next/image";
 const FeaturedCard = ({
   title,
   headline,
@@ -9,7 +9,7 @@ const FeaturedCard = ({
 }) => {
   return (
     <div className="bg-white shadow-md rounded-xl p-4 hover:shadow-lg transform hover:scale-105 transition-all duration-200 ease-in-out">
-      <img
+      <Image
         src={imageURL}
         alt={title}
         className="w-80 h-40 object-cover rounded"

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import QRCode from "qrcode.react";
 import Navbar from "../components/layout/Navbar";
+import Image from "next/image";
 const hardcodedNftData = {
   title: "Mighty Cow",
   description: "MoMo Nation Project",
@@ -23,7 +24,7 @@ const ProductPage = ({ nftData = hardcodedNftData }) => {
     <Navbar />
     <div className="container mx-auto p-24 mx-auto">
       <div className="flex flex-col lg:flex-row items-center">
-        <img
+        <Image
           src={nftData.image}
           alt={nftData.title}
           width={nftData.width}

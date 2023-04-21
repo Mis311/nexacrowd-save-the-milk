@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { ethers } from "ethers";
 import detectEthereumProvider from "@metamask/detect-provider";
 import Link from "next/link";
+import Image from "next/image"
 
 const Navbar = () => {
   const [account, setAccount] = useState("");
@@ -31,7 +32,7 @@ const Navbar = () => {
           <ul className="hidden sm:flex space-x-8 flex items-center pt-2">
             <Link href="/" className="text-white font-bold text-xl">
               <div className="container w-fit">
-                <img src="/logo.png" className="w-32"></img>
+                <Image src="/logo.png" className="w-32"></Image>
               </div>
             </Link>
 
