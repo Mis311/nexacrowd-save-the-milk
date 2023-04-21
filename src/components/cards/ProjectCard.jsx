@@ -42,9 +42,9 @@ const ProjectCard = ({ projectData, layout = "vertical" }) => {
         <Image
           src={projectData.image}
           alt={projectData.title}
-          layout="fill"
-          objectFit="cover"
+        
           className="rounded-lg"
+          fill
         />
       </div>
       <div className={contentClasses}>

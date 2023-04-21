@@ -6,7 +6,7 @@ const mightyCowNFT = {
     description: "MoMo Nation Project",
     image: "/nfts/cow1.png",
     width: 300,
-    height: 300,
+    height: 400,
     slug: "/nfts/mighty-cow",
   };
 

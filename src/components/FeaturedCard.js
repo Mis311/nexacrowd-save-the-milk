@@ -3,17 +3,25 @@ import Image from "next/image";
 const FeaturedCard = ({
   title,
   headline,
-  buttonText,
   imageURL,
+  buttonText,
   raisedAmount,
+  imageWidth = 300,
+  imageHeight = 400,
 }) => {
   return (
     <div className="bg-white shadow-md rounded-xl p-4 hover:shadow-lg transform hover:scale-105 transition-all duration-200 ease-in-out">
-      <Image
-        src={imageURL}
-        alt={title}
-        className="w-80 h-40 object-cover rounded"
-      />
+      <div className="relative w-full h-64 overflow-hidden rounded-md">
+        <Image
+          src={imageURL}
+          alt={title}
+          width={imageWidth}
+          height={imageHeight}
+          layout="responsive"
+          className="w-full object-cover rounded-md"
+        />
+      </div>
+
       <h2 className="text-2xl font-bold mb-2 font-lato">{title}</h2>
       <p className="text-lg mb-4 font-nunito">{headline}</p>
 
