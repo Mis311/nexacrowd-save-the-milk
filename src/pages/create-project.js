@@ -4,44 +4,68 @@ import openaiApi from "../utils/openaiApi";
 import AnimatedLoader from "../components/AnimatedLoader";
 import TalentCard from "../components/cards/TalentCard";
 
-
-
-const DisplayGptResponse = ({ response }) => {
-  return (
-    <div className="container mx-auto px-4 py-8">
-      <h2 className="text-2xl font-semibold mb-4">ChatGPT Response</h2>
-    </div>
-  );
-};
-
 const CreateProject = () => {
   const [amount, setAmount] = useState("");
   const [objective, setObjective] = useState({});
   const [otherObjective, setOtherObjective] = useState("");
-  const [chatGptResponse, setChatGptResponse] = useState("");
+  const [chatGptResponse, setChatGptResponse] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+
   const handleObjectiveChange = (e) => {
     const { name, checked } = e.target;
     setObjective((prevObjective) => ({ ...prevObjective, [name]: checked }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit =(e) => {
     e.preventDefault();
     const chosenObjective = objective.others ? otherObjective : objective;
     setIsLoading(true);
+    setChatGptResponse(true);
     // Create a formatted prompt for ChatGPT
-    const prompt = `The user needs approximately ${amount} JPY in funding for their project. Their main objective is "${chosenObjective}". What are some suitable duration for the fundraising (suggest approcimate time), solutions and a list of necessary stakeholders (people to hire and their skillset & experiences) for this project? Suggest each of the list up to 10(only 1 for duration)`;
+    // const prompt = `The user needs approximately ${amount} JPY in funding for their project. Their main objective is "${chosenObjective}". What are some suitable duration for the fundraising (suggest approcimate time), solutions and a list of necessary stakeholders (people to hire and their skillset & experiences) for this project? Suggest each of the list up to 10(only 1 for duration)`;
 
     // Get ChatGPT response
-    const chatGptResponse = await openaiApi(prompt);
-    setChatGptResponse(chatGptResponse);
+    //   const chatGptResponse = await openaiApi(prompt);
+    //   setChatGptResponse(chatGptResponse);
   };
+
+  const simulatedResponse = [
+    {
+      title: "Web3 Developer",
+      description: "Join our team to develop and deploy smart contracts.",
+      image: "/nfts/cow1.png",
+      payment: "Paid",
+      proofOfWork: "No",
+    },
+    {
+      title: "Marketing Specialist",
+      description: "Help promote our NFT farm and grow our community.",
+      image: "/nfts/cow1.png",
+      payment: "Paid",
+      proofOfWork: "No",
+    },
+    {
+      title: "Content Creator",
+      description: "Create engaging content for our NFT project.",
+      image: "/nfts/cow1.png",
+      payment: "Non-Paid",
+      proofOfWork: "Yes",
+    },
+    {
+      title: "Social Media Manager",
+      description:
+        "Manage our social media accounts and engage with the community.",
+      image: "/nfts/cow1.png",
+      payment: "Paid",
+      proofOfWork: "No",
+    },
+  ];
 
   return (
     <div>
       <Navbar style={{ backgroundColor: "grey" }} />
       <main>
-        <chatGpt />
+       
         <div className="container mx-auto px-4 py-8 mt-24">
           <h1 className="text-2xl font-semibold mb-4">Create Project</h1>
           <form onSubmit={handleSubmit}>
@@ -129,18 +153,26 @@ const CreateProject = () => {
                   <span className="ml-2">Others</span>
                 </label>
               </div>
-            </div>
-
-            <button
+            </div>            <button
               type="submit"
               className="bg-blue-500 text-white font-semibold px-4 py-2 rounded hover:bg-blue-600"
-              onClick={AnimatedLoader}
+              onClick={chatGptResponse}
             >
               Confirm
             </button>
           </form>
+          <div className="container mx-auto px-4 py-8">
+            <h2 className="text-2xl font-semibold mb-4">ChatGPT Response</h2>
+            {chatGptResponse ? (
+    simulatedResponse.map((job, index) => (
+      <TalentCard key={index} jobData={job} layout="horizontal" />
+    ))
+  ) : (
+    null
+  )}
+          </div>
         </div>
-        
+
         {/* {chatGptResponse && <DisplayGptResponse response={chatGptResponse} />} */}
       </main>
     </div>
