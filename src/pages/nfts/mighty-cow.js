@@ -1,5 +1,5 @@
 import React from "react";
-import ProductPage from "../components/ProductPage";
+import ProductPage from "../product";
 
 const mightyCowNFT = {
     title: "Mighty Cow",
